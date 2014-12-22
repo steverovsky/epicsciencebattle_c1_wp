@@ -87,6 +87,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="BasicCharacter.cs" />
+    <Compile Include="BasicModel.cs" />
     <Compile Include="Camera2D.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="GamePage.xaml.cs">

@@ -3,10 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
 
 namespace _004_epicsciencebattle_chapter1 {
-    class BasicCharacter {
-        private Texture2D textureCharacter;
-        public Vector2 positionOnDisplay;
-        public float defaultY;
+    class BasicCharacter : BasicModel {
         public float verticalDelta;
         public float horizontalDelta;
         public sbyte verticalMomentum;
@@ -16,25 +13,10 @@ namespace _004_epicsciencebattle_chapter1 {
         public int[] numberFramesAction;
         public int Rows { get; set; }
         public int Columns { get; set; }
-        private Vector2 sizeCharacter;
-
-        public Vector2 SizeCharacter {
-            get { return sizeCharacter; }
-        }
-
-        public Texture2D TextureCharacter {
-            set { textureCharacter = value; }
-            get { return textureCharacter; }
-        }
-
-        public Vector2 PositionOnDisplay {
-            set { positionOnDisplay = value; }
-            get { return positionOnDisplay; }
-        }
 
         public BasicCharacter () {
-            this.defaultY = 245f;
-            this.positionOnDisplay = new Vector2 (0, this.defaultY);
+            this.defaultPosition = new Vector2 (0, 245f);
+            this.positionOnDisplay = defaultPosition;
             this.verticalDelta = 250f;
             this.verticalMomentum = 0;
             this.horizontalMomentum = 0;
@@ -42,13 +24,7 @@ namespace _004_epicsciencebattle_chapter1 {
             this.currentFrame = 0;
             this.currentAction = 0;
             this.numberFramesAction = new int[5] { 5, 4, 3, 1, 3};
-            this.sizeCharacter = new Vector2 (250f, 470f);
-        }
-
-        
-
-        public void Update () {
-
+            sizeTexture = new Vector2 (250f, 470f);
         }
 
     }

@@ -59,14 +59,14 @@ namespace _004_epicsciencebattle_chapter1 {
 
         protected override void LoadContent () {
             spriteBatch = new SpriteBatch (GraphicsDevice);
-            testCharacter.TextureCharacter = Content.Load <Texture2D> ("spriteAction");
+            testCharacter.SpriteModel = Content.Load<Texture2D> ("spriteAction");
             bgAdapter = Content.Load<Texture2D> ("bg_adapter2");
             bgScreen = Content.Load<Texture2D> ("bg_sprite");
             bgMenu = Content.Load<Texture2D> ("bgMenu");
         }
 
         protected override void Update (GameTime gameTime) {
-            GameState a = GameState.Fight;
+          
             switch (currentState) { 
 
                 case GameState.Menu:
@@ -113,9 +113,10 @@ namespace _004_epicsciencebattle_chapter1 {
                                     
                                     break;
                                 case 1:
-                                    if ((testCharacter.positionOnDisplay.X + 250 > 2560))
+                                    if ((testCharacter.PositionOnDisplay.X + 250 > 2560))
                                         break;
-                                    testCharacter.positionOnDisplay.X += speedCharacterMoving;
+                                    //testCharacter.PositionOnDisplay.X += speedCharacterMoving;
+                                    testCharacter.PositionOnDisplayAdd (new Vector2 (speedCharacterMoving, 0f));
                                     testCharacter.currentAction = 2;
                                     //activationMovementCamera (1, speedCharacterMoving);
                                     cam.activationMovementCamera (CharacterActions.Right, speedCharacterMoving, testCharacter, bgScreen.Width);
@@ -125,9 +126,10 @@ namespace _004_epicsciencebattle_chapter1 {
                                
                                     break;
                                 case 3:
-                                    if (testCharacter.positionOnDisplay.X < 0f)
+                                    if (testCharacter.PositionOnDisplay.X < 0f)
                                         break;
-                                    testCharacter.positionOnDisplay.X -= speedCharacterMoving;
+                                    testCharacter.PositionOnDisplayAdd (new Vector2 (-1 * speedCharacterMoving, 0f));
+                                    //testCharacter.positionOnDisplay.X -= speedCharacterMoving;
                                     testCharacter.currentAction = 4;
                                     cam.activationMovementCamera (CharacterActions.Left, speedCharacterMoving, testCharacter, bgScreen.Width);
                                     break;
@@ -152,15 +154,17 @@ namespace _004_epicsciencebattle_chapter1 {
                         testCharacter.currentFrame = 0;
  
                     if (testCharacter.verticalMomentum == (int) Momentum.Positive) {
-                        testCharacter.positionOnDisplay.Y -= speedCharacterMoving;
-                        if ((testCharacter.defaultY - testCharacter.positionOnDisplay.Y) >= testCharacter.verticalDelta) {
+                        testCharacter.PositionOnDisplayAdd (new Vector2 ( 0f, -1 * speedCharacterMoving));
+                        //testCharacter.PositionOnDisplay.Y -= speedCharacterMoving;
+                        if ((testCharacter.DefaultPosition.Y - testCharacter.PositionOnDisplay.Y) >= testCharacter.verticalDelta) {
                             testCharacter.verticalMomentum = (int) Momentum.Negative;
                         }
                     }
                     if (testCharacter.verticalMomentum == (int) Momentum.Negative) {
-                        testCharacter.positionOnDisplay.Y += speedCharacterMoving;
-                        if (testCharacter.positionOnDisplay.Y >= testCharacter.defaultY) {
-                            testCharacter.positionOnDisplay.Y = testCharacter.defaultY;
+                       // testCharacter.positionOnDisplay.Y += speedCharacterMoving;
+                        testCharacter.PositionOnDisplayAdd (new Vector2 (0f, speedCharacterMoving));
+                        if (testCharacter.PositionOnDisplay.Y >= testCharacter.DefaultPosition.Y) {
+                            testCharacter.PositionOnDisplay = new Vector2 (testCharacter.PositionOnDisplay.X, testCharacter.DefaultPosition.Y);
                             testCharacter.verticalMomentum = (int) Momentum.Neutral;
                             stateAction[(int) CharacterActions.Up] = false;
                         }
@@ -217,7 +221,7 @@ namespace _004_epicsciencebattle_chapter1 {
                     //spriteBatch.Draw(Texture, destinationRectangle, sourceRectangle, Color.White);
 
 
-                    spriteBatch.Draw (testCharacter.TextureCharacter, testCharacter.positionOnDisplay, sourceRectangle, Color.White);
+                    spriteBatch.Draw (testCharacter.SpriteModel, testCharacter.PositionOnDisplay, sourceRectangle, Color.White);
                     spriteBatch.Draw (bgAdapter, cam.Offset, Color.White);
                     //spriteBatch.Draw ()
                     break;

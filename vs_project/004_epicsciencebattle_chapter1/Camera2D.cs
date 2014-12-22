@@ -55,7 +55,7 @@ namespace _004_epicsciencebattle_chapter1 {
             switch (_type) {
                 case CharacterActions.Left:
                     float leftBoundaryCamera = Offset.X;
-                    float leftBoundaryCharacter = _character.positionOnDisplay.X;
+                    float leftBoundaryCharacter = _character.PositionOnDisplay.X;
                     if (leftBoundaryCamera - _speedMoving < 0f) {
                         _speedMoving = leftBoundaryCamera;
                     }
@@ -65,7 +65,7 @@ namespace _004_epicsciencebattle_chapter1 {
                     break;
                 case CharacterActions.Right:
                     float rightBoundaryCamera = graphicsDevice.Viewport.Width + Offset.X;
-                    float rightBoundaryCharacter = _character.positionOnDisplay.X + _character.SizeCharacter.X;
+                    float rightBoundaryCharacter = _character.PositionOnDisplay.X + _character.SizeTexture.X;
                     if ((rightBoundaryCamera + _speedMoving) > _fieldWidth) {
                         _speedMoving = _fieldWidth - rightBoundaryCamera;
                     }
