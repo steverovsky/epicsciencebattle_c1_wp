@@ -1,0 +1,8 @@
+﻿<Application
+    
+    x:Class="_004_epicsciencebattle_chapter1.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:_004_epicsciencebattle_chapter1">
+    
+</Application>

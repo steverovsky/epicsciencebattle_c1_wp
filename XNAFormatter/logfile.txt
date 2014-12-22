@@ -1,0 +1,25 @@
+Message at 21.11.2014 19:00:19: Rebuilding all content because build settings have changed
+Message at 21.11.2014 19:00:20: Building Без имени-3.png -> C:\Users\Никита\SkyDrive\Разработки\004_epicsciencebattle_chapter1\XNAFormatter\Content\Без имени-3.xnb
+Message at 21.11.2014 19:00:20: Importing Без имени-3.png with Microsoft.Xna.Framework.Content.Pipeline.TextureImporter
+Message at 21.11.2014 19:00:20: Processing Без имени-3.png with Microsoft.Xna.Framework.Content.Pipeline.Processors.TextureProcessor
+Message at 21.11.2014 19:00:20: Compiling C:\Users\Никита\SkyDrive\Разработки\004_epicsciencebattle_chapter1\XNAFormatter\Content\Без имени-3.xnb
+Message at 21.11.2014 19:07:27: Rebuilding all content because build settings have changed
+Message at 21.11.2014 19:07:27: Building Без имени-3.png -> C:\Users\Никита\SkyDrive\Разработки\004_epicsciencebattle_chapter1\XNAFormatter\Content\Без имени-3.xnb
+Message at 21.11.2014 19:07:27: Importing Без имени-3.png with Microsoft.Xna.Framework.Content.Pipeline.TextureImporter
+Message at 21.11.2014 19:07:27: Processing Без имени-3.png with Microsoft.Xna.Framework.Content.Pipeline.Processors.TextureProcessor
+Message at 21.11.2014 19:07:27: Compiling C:\Users\Никита\SkyDrive\Разработки\004_epicsciencebattle_chapter1\XNAFormatter\Content\Без имени-3.xnb
+Message at 21.11.2014 22:08:41: Rebuilding all content because build settings have changed
+Message at 21.11.2014 22:08:41: Building bg_adapter.png -> C:\Users\Никита\SkyDrive\Разработки\004_epicsciencebattle_chapter1\XNAFormatter\Content\bg_adapter.xnb
+Message at 21.11.2014 22:08:41: Importing bg_adapter.png with Microsoft.Xna.Framework.Content.Pipeline.TextureImporter
+Message at 21.11.2014 22:08:42: Processing bg_adapter.png with Microsoft.Xna.Framework.Content.Pipeline.Processors.TextureProcessor
+Message at 21.11.2014 22:08:42: Compiling C:\Users\Никита\SkyDrive\Разработки\004_epicsciencebattle_chapter1\XNAFormatter\Content\bg_adapter.xnb
+Message at 21.11.2014 22:08:47: Rebuilding all content because build settings have changed
+Message at 21.11.2014 22:08:47: Building bg_adapter.png -> C:\Users\Никита\SkyDrive\Разработки\004_epicsciencebattle_chapter1\XNAFormatter\Content\bg_adapter.xnb
+Message at 21.11.2014 22:08:47: Importing bg_adapter.png with Microsoft.Xna.Framework.Content.Pipeline.TextureImporter
+Message at 21.11.2014 22:08:47: Processing bg_adapter.png with Microsoft.Xna.Framework.Content.Pipeline.Processors.TextureProcessor
+Message at 21.11.2014 22:08:47: Compiling C:\Users\Никита\SkyDrive\Разработки\004_epicsciencebattle_chapter1\XNAFormatter\Content\bg_adapter.xnb
+Message at 21.11.2014 23:48:30: Rebuilding all content because build settings have changed
+Message at 21.11.2014 23:48:30: Building bgMenu.png -> XNAFormatter\Content\bgMenu.xnb
+Message at 21.11.2014 23:48:30: Importing bgMenu.png with Microsoft.Xna.Framework.Content.Pipeline.TextureImporter
+Message at 21.11.2014 23:48:31: Processing bgMenu.png with Microsoft.Xna.Framework.Content.Pipeline.Processors.TextureProcessor
+Message at 21.11.2014 23:48:31: Compiling XNAFormatter\Content\bgMenu.xnb
