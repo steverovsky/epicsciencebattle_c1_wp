@@ -1,1 +1,1 @@
-C:\Users\Никита\SkyDrive\Разработки\004_epicsciencebattle_chapter1\004_epicsciencebattle_chapter1\004_epicsciencebattle_chapter1.csproj;neutral
+C:\Users\Никита\SkyDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\004_epicsciencebattle_chapter1.csproj;neutral

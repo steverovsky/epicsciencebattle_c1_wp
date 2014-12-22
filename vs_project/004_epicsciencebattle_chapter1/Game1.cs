@@ -9,6 +9,7 @@ using System.Collections.Generic;
 namespace _004_epicsciencebattle_chapter1 {
 
     enum GameState { Menu, Fight };
+    public enum CharacterActions { Nothing, Up, Right, Down, Left };
 
     public class Game1 : Game {
         private GraphicsDeviceManager graphics;
@@ -20,13 +21,12 @@ namespace _004_epicsciencebattle_chapter1 {
         Vector2[] adapterSectionLeft;
         Vector2[] adapterSectionRight;
         bool [] stateAction;
+        SpriteFont font;
         int prevAction = 0;
-       // int offset = 0;
-        enum CharacterActions { Nothing, Up, Right, Down, Left };
+        
         enum Momentum { Negative, Neutral, Positive };
         GameState currentState;
         Camera2D cam;
-        float offset;
         public Game1 () {
             graphics = new GraphicsDeviceManager (this);
             Content.RootDirectory = "Content";
@@ -34,9 +34,8 @@ namespace _004_epicsciencebattle_chapter1 {
 
         protected override void Initialize () {
             StatusBar.GetForCurrentView ().HideAsync ();
-            cam = new Camera2D ();
-            offset = 0f;
-            cam.Pos = new Vector2 (640f, 384f); // camera on center 
+            cam = new Camera2D (new Vector2 (GraphicsDevice.Viewport.Width / 2, GraphicsDevice.Viewport.Height / 2), GraphicsDevice);
+            //offset = 0f;
             stateAction = new bool[5] {false, false, false, false, false};
             graphics.SupportedOrientations = DisplayOrientation.LandscapeLeft;
             testCharacter = new BasicCharacter ();
@@ -64,34 +63,6 @@ namespace _004_epicsciencebattle_chapter1 {
             bgAdapter = Content.Load<Texture2D> ("bg_adapter2");
             bgScreen = Content.Load<Texture2D> ("bg_sprite");
             bgMenu = Content.Load<Texture2D> ("bgMenu");
-        }
-
-        public void activationMovementCamera (int _type, float _speedMoving) {
-            float boundaryDistance = 50f;
-            switch (_type) {
-                case 0:
-                    float leftBoundaryCamera = 0f + offset;
-                    float leftBoundaryCharacter = testCharacter.positionOnDisplay.X;
-                    if (leftBoundaryCamera - _speedMoving < 0f) {
-                        _speedMoving = leftBoundaryCamera;
-                    }
-                    if ((leftBoundaryCharacter - leftBoundaryCamera) <= boundaryDistance) {
-                        offset -= _speedMoving;
-                        cam.Move (new Vector2 (-1 * _speedMoving, 0f));
-                    }
-                    break;
-                case 1:
-                    float rightBoundaryCamera = 1280f + offset;
-                    float rightBoundaryCharacter = testCharacter.positionOnDisplay.X + 250;
-                    if ((rightBoundaryCamera + _speedMoving) > 2560) {
-                        _speedMoving = 2560 - rightBoundaryCamera;
-                    }
-                    if ((rightBoundaryCamera - rightBoundaryCharacter) <= boundaryDistance) {
-                        offset += _speedMoving;
-                        cam.Move (new Vector2 (_speedMoving, 0f));
-                    }
-                    break;
-            }
         }
 
         protected override void Update (GameTime gameTime) {
@@ -146,7 +117,8 @@ namespace _004_epicsciencebattle_chapter1 {
                                         break;
                                     testCharacter.positionOnDisplay.X += speedCharacterMoving;
                                     testCharacter.currentAction = 2;
-                                    activationMovementCamera (1, speedCharacterMoving);
+                                    //activationMovementCamera (1, speedCharacterMoving);
+                                    cam.activationMovementCamera (CharacterActions.Right, speedCharacterMoving, testCharacter, bgScreen.Width);
                                     break;
                                 case 2:
                                     testCharacter.currentAction = 3;
@@ -157,7 +129,7 @@ namespace _004_epicsciencebattle_chapter1 {
                                         break;
                                     testCharacter.positionOnDisplay.X -= speedCharacterMoving;
                                     testCharacter.currentAction = 4;
-                                    activationMovementCamera (0, speedCharacterMoving);
+                                    cam.activationMovementCamera (CharacterActions.Left, speedCharacterMoving, testCharacter, bgScreen.Width);
                                     break;
                                 
                                
@@ -222,10 +194,12 @@ namespace _004_epicsciencebattle_chapter1 {
                         null,
                         null,
                         null,
-                        cam.getTransformation (GraphicsDevice));
+                        cam.GetTransformation ());
 
             switch (currentState) {
                 case GameState.Menu:
+
+                   // spriteBatch.DrawString (font, "build 002", new Vector2 (10, 10), Color.White);
                     spriteBatch.Draw (bgMenu, Vector2.Zero, Color.White);
                     break;
                 case GameState.Fight:
@@ -244,7 +218,7 @@ namespace _004_epicsciencebattle_chapter1 {
 
 
                     spriteBatch.Draw (testCharacter.TextureCharacter, testCharacter.positionOnDisplay, sourceRectangle, Color.White);
-                    spriteBatch.Draw (bgAdapter, new Vector2 (offset, 0), Color.White);
+                    spriteBatch.Draw (bgAdapter, cam.Offset, Color.White);
                     //spriteBatch.Draw ()
                     break;
             }

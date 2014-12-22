@@ -142,6 +142,10 @@
     <Content Include="Content\bg_sprite.xnb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\SpriteFont.spritefont">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Content\testgg.xnb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

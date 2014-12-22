@@ -7,16 +7,16 @@
     <SolutionConfiguration>Debug|AnyCPU</SolutionConfiguration>
     <PackageArchitecture>neutral</PackageArchitecture>
     <PackageIdentityName>1daba941-cfdf-413d-a68b-c8d94eb9d92b</PackageIdentityName>
-    <IntermediateOutputPath>C:\Users\Никита\SkyDrive\Разработки\004_epicsciencebattle_chapter1\004_epicsciencebattle_chapter1\obj\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\Никита\SkyDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\obj\Debug\</IntermediateOutputPath>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\Никита\SkyDrive\Разработки\004_epicsciencebattle_chapter1\004_epicsciencebattle_chapter1\bin\Debug\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\Никита\SkyDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\bin\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\Никита\SkyDrive\Разработки\004_epicsciencebattle_chapter1\004_epicsciencebattle_chapter1\bin\Debug\004_epicsciencebattle_chapter1.exe">
+    <AppxPackagedFile Include="C:\Users\Никита\SkyDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\bin\Debug\004_epicsciencebattle_chapter1.exe">
       <PackagePath>004_epicsciencebattle_chapter1.exe</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\MonoGame\v3.0\Assemblies\WindowsPhone81\MonoGame.Framework.dll">
@@ -40,40 +40,43 @@
     <AppxPackagedFile Include="C:\Program Files %28x86%29\MonoGame\v3.0\Assemblies\WindowsPhone81\SharpDX.MediaFoundation.dll">
       <PackagePath>SharpDX.MediaFoundation.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Никита\SkyDrive\Разработки\004_epicsciencebattle_chapter1\004_epicsciencebattle_chapter1\Content\test.xnb">
+    <AppxPackagedFile Include="C:\Users\Никита\SkyDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\Content\test.xnb">
       <PackagePath>Content\test.xnb</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Никита\SkyDrive\Разработки\004_epicsciencebattle_chapter1\004_epicsciencebattle_chapter1\Content\bg_adapter.xnb">
+    <AppxPackagedFile Include="C:\Users\Никита\SkyDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\Content\bg_adapter.xnb">
       <PackagePath>Content\bg_adapter.xnb</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Никита\SkyDrive\Разработки\004_epicsciencebattle_chapter1\004_epicsciencebattle_chapter1\Content\bgMenu.xnb">
+    <AppxPackagedFile Include="C:\Users\Никита\SkyDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\Content\bgMenu.xnb">
       <PackagePath>Content\bgMenu.xnb</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Никита\SkyDrive\Разработки\004_epicsciencebattle_chapter1\004_epicsciencebattle_chapter1\Content\bg_adapter2.xnb">
+    <AppxPackagedFile Include="C:\Users\Никита\SkyDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\Content\bg_adapter2.xnb">
       <PackagePath>Content\bg_adapter2.xnb</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Никита\SkyDrive\Разработки\004_epicsciencebattle_chapter1\004_epicsciencebattle_chapter1\Content\testCharacter.xnb">
+    <AppxPackagedFile Include="C:\Users\Никита\SkyDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\Content\testCharacter.xnb">
       <PackagePath>Content\testCharacter.xnb</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Никита\SkyDrive\Разработки\004_epicsciencebattle_chapter1\004_epicsciencebattle_chapter1\Content\spriteAction.xnb">
+    <AppxPackagedFile Include="C:\Users\Никита\SkyDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\Content\spriteAction.xnb">
       <PackagePath>Content\spriteAction.xnb</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Никита\SkyDrive\Разработки\004_epicsciencebattle_chapter1\004_epicsciencebattle_chapter1\Content\bg_sprite.xnb">
+    <AppxPackagedFile Include="C:\Users\Никита\SkyDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\Content\bg_sprite.xnb">
       <PackagePath>Content\bg_sprite.xnb</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Никита\SkyDrive\Разработки\004_epicsciencebattle_chapter1\004_epicsciencebattle_chapter1\Content\testTextureAtlases.xnb">
+    <AppxPackagedFile Include="C:\Users\Никита\SkyDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\Content\testTextureAtlases.xnb">
       <PackagePath>Content\testTextureAtlases.xnb</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Никита\SkyDrive\Разработки\004_epicsciencebattle_chapter1\004_epicsciencebattle_chapter1\bin\Debug\App.xbf">
+    <AppxPackagedFile Include="C:\Users\Никита\SkyDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\Content\SpriteFont.spritefont">
+      <PackagePath>Content\SpriteFont.spritefont</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Никита\SkyDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\bin\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Никита\SkyDrive\Разработки\004_epicsciencebattle_chapter1\004_epicsciencebattle_chapter1\bin\Debug\GamePage.xbf">
+    <AppxPackagedFile Include="C:\Users\Никита\SkyDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\bin\Debug\GamePage.xbf">
       <PackagePath>GamePage.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Никита\SkyDrive\Разработки\004_epicsciencebattle_chapter1\004_epicsciencebattle_chapter1\bin\Debug\004_epicsciencebattle_chapter1.xr.xml">
+    <AppxPackagedFile Include="C:\Users\Никита\SkyDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\bin\Debug\004_epicsciencebattle_chapter1.xr.xml">
       <PackagePath>004_epicsciencebattle_chapter1.xr.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Никита\SkyDrive\Разработки\004_epicsciencebattle_chapter1\004_epicsciencebattle_chapter1\bin\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\Users\Никита\SkyDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\bin\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
     </AppxPackagedFile>
   </ItemGroup>

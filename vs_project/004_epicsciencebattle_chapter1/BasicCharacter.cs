@@ -16,6 +16,11 @@ namespace _004_epicsciencebattle_chapter1 {
         public int[] numberFramesAction;
         public int Rows { get; set; }
         public int Columns { get; set; }
+        private Vector2 sizeCharacter;
+
+        public Vector2 SizeCharacter {
+            get { return sizeCharacter; }
+        }
 
         public Texture2D TextureCharacter {
             set { textureCharacter = value; }
@@ -36,7 +41,8 @@ namespace _004_epicsciencebattle_chapter1 {
             this.horizontalDelta = 500f;
             this.currentFrame = 0;
             this.currentAction = 0;
-            this.numberFramesAction = new int[5] { 5, 4, 3, 1, 3}; 
+            this.numberFramesAction = new int[5] { 5, 4, 3, 1, 3};
+            this.sizeCharacter = new Vector2 (250f, 470f);
         }
 
         
