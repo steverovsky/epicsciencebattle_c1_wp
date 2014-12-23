@@ -8,6 +8,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows;
+using Microsoft.Xna.Framework.Input.Touch;
 
 namespace _004_epicsciencebattle_chapter1 {
     class Control : BasicModel {
@@ -32,35 +33,6 @@ namespace _004_epicsciencebattle_chapter1 {
             this.centerPosition = new Vector2 (this.positionOnDisplay.X + this.outerRadius, this.positionOnDisplay.Y + this.outerRadius);
         }
 
-        public float CrossProduct (Vector2 a, Vector2 b) {
-            return a.X * b.Y - a.Y * b.X;
-        }
-
-        public float dot (Vector2 a, Vector2 b) {
-            return a.X * b.X + a.Y * b.Y;
-        }
-
-        public bool f (Vector2 A, Vector2 B, Vector2 C, Vector2 P) {
-            // Compute vectors  
-            Vector2 v0 = C - A;
-            Vector2 v1 = B - A;
-            Vector2 v2 = P - A;
-
-            // Compute dot products
-            float dot00 = dot(v0, v0);
-            float dot01 = dot(v0, v1);
-            float dot02 = dot(v0, v2);
-            float dot11 = dot(v1, v1);
-            float dot12 = dot (v1, v2);
-
-            // Compute barycentric coordinates
-            float invDenom = 1 / (dot00 * dot11 - dot01 * dot01);
-            float u = (dot11 * dot02 - dot01 * dot12) * invDenom;
-            float v = (dot00 * dot12 - dot01 * dot02) * invDenom;
-
-            return (u >= 0) && (v >= 0) && (u + v < 1);
-        }
-
         float sign (Vector2 p1, Vector2 p2, Vector2 p3) {
             return (p1.X - p3.X) * (p2.Y - p3.Y) - (p2.X - p3.X) * (p1.Y - p3.Y);
         }
@@ -75,42 +47,58 @@ namespace _004_epicsciencebattle_chapter1 {
             return ((b1 == b2) && (b2 == b3));
         }
 
-        public bool EntryIntoTriangle (Vector2 _a, Vector2 _b, Vector2 _c, Vector2 _point) {
-            float a = (_a.X - _point.X) * (_b.Y - _a.Y) - (_b.X - _a.X) * (_a.Y - _point.Y);
-            float b = (_b.X - _point.X) * (_c.Y - _b.Y) - (_c.X - _b.X) * (_b.Y - _point.Y);
-            float c = (_c.X - _point.X) * (_a.Y - _c.Y) - (_a.X - _c.X) * (_c.Y - _point.Y);
-            // проверить случай, когда точка на линии треугольника
-            if ((a >= 0 && b >= 0 && c >= 0) || (a <= 0 && b <= 0 && c <= 0)) 
-                return true;
-            return false;
+        public bool EntryIntoSection (int _numberSection, Vector2 _point) {
+            // point вместо vector2?
+            float PointDistaneToCenter = (float) (Math.Pow (_point.X - centerPosition.X, 2) + Math.Pow (_point.Y - centerPosition.Y, 2));
+            bool entryIntoInnerCircle = PointDistaneToCenter < innerRadius * innerRadius;
+            if (_numberSection == 0) {
+                return entryIntoInnerCircle;
+            }
+            float k = 1.41f * outerRadius / 2;
+            Vector2[] vertices = new Vector2 [4];
+            vertices[0] = new Vector2 (0, 0);
+            switch (_numberSection) {
+                case 1:
+                    vertices[1] = new Vector2 (-k, -k);
+                    vertices[2] = new Vector2 (0, -outerRadius);
+                    vertices[3] = new Vector2 (k, -k);
+                    break;
+                case 2:
+                    vertices[1] = new Vector2 (-k, -k);
+                    vertices[2] = new Vector2 (outerRadius, 0);
+                    vertices[3] = new Vector2 (k, k);
+                    break;
+                case 3:
+                    vertices[1] = new Vector2 (k, k);
+                    vertices[2] = new Vector2 (0, outerRadius);
+                    vertices[3] = new Vector2 (-k, k);
+                    break;
+                case 4:
+                    vertices[1] = new Vector2 (-k, k);
+                    vertices[2] = new Vector2 (-outerRadius, 0);
+                    vertices[3] = new Vector2 (-k, -k);
+                    break;
+            }
+            for (int i = 0; i < vertices.Length; ++i) {
+               vertices[i] += centerPosition;
+            }
+            return (PointInTriangle (_point, vertices[0], vertices[1], vertices[3]) ||
+                   PointInTriangle (_point, vertices[1], vertices[2], vertices[3])) &&
+                   !entryIntoInnerCircle;
         }
 
-        public int getSectionNumber (Vector2 _point) {
-            bool pointInTriangle = false;
-            float d = 1.41f * outerRadius / 2;
-
-            for (int section = 1; section <= 4; ++section) {
-                switch (section) {
-                    case 1:
-                        //System.Diagnostics.Debug.WriteLine (centerPosition.X + " " + centerPosition.Y);
-                        pointInTriangle = PointInTriangle (_point, centerPosition, 
-                                           new Vector2 (centerPosition.X + d, centerPosition.Y + d), 
-                                           new Vector2 (centerPosition.X - d, centerPosition.Y + d)
-                                           ) || PointInTriangle (_point, new Vector2 (centerPosition.X + d, centerPosition.Y + d), 
-                                                                         new Vector2 (centerPosition.X - d, centerPosition.Y - d),
-                                                                         new Vector2 (centerPosition.X, centerPosition.Y + outerRadius)
-                                                                         );
-                        // вынести проверку вхождения не в маленький круг вне свитча
-                        // просто запомнить секцию и брейкаться
-                        if (pointInTriangle &&
-                           !((Math.Sqrt (Math.Pow (_point.X - centerPosition.X, 2) + Math.Pow (_point.Y - centerPosition.Y, 2))) < innerRadius)) {
-                            // избавиться от корня — результат в квадрат
-                            return 1;
+        public int getSectionNumber () {
+            TouchCollection touchCollection = TouchPanel.GetState ();
+            foreach (TouchLocation pressure in touchCollection) {
+                if ((pressure.State == TouchLocationState.Pressed) || (pressure.State == TouchLocationState.Moved)) {
+                    for (int i = 0; i < 5; ++i) {
+                        if (EntryIntoSection (i, pressure.Position)) {
+                            return i;
                         }
-                        break;
+                    }
                 }
             }
-            return 0;
+            return -1;
         }
     }
 }

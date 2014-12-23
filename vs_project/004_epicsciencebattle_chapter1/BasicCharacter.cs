@@ -59,7 +59,7 @@ namespace _004_epicsciencebattle_chapter1 {
             return 0;
         }
 
-        public void update (GameTime _gameTime, Vector2[] adapterSectionLeft, Vector2[] adapterSectionRight, Camera2D cam, Texture2D bgScreen) {
+        public void update (GameTime _gameTime, Vector2[] adapterSectionLeft, Vector2[] adapterSectionRight, Camera2D cam, Texture2D bgScreen, Control _movingControl) {
             currentAction = 0;
 
             int it;
@@ -67,17 +67,10 @@ namespace _004_epicsciencebattle_chapter1 {
             float speedCharacterMoving = 1f * (float) _gameTime.ElapsedGameTime.TotalMilliseconds;
 
             TouchCollection touchCollection = TouchPanel.GetState ();
-            foreach (TouchLocation tl in touchCollection) {
-                if ((tl.State == TouchLocationState.Pressed) || (tl.State == TouchLocationState.Moved)) {
-                    for (it = 0; it < adapterSectionLeft.Length; ++it) {
-                        if (tl.Position.X >= adapterSectionLeft[it].X && tl.Position.X <= adapterSectionRight[it].X &&
-                            tl.Position.Y >= adapterSectionLeft[it].Y && tl.Position.Y <= adapterSectionRight[it].Y) {
-                            break;
-                        }
-                    }
-                    //System.Diagnostics.Debug.WriteLine (getSectionNumberLeftAdapter (touchCollection));
-                    switch (it) {
-                        case 0:
+
+
+            switch (_movingControl.getSectionNumber ()) {
+                        case 1:
 
                             if (!stateAction[(int) CharacterActions.Up]) {
                                 stateAction[(int) CharacterActions.Up] = true;
@@ -87,18 +80,18 @@ namespace _004_epicsciencebattle_chapter1 {
                             currentAction = 1;
 
                             break;
-                        case 1:
+                        case 2:
                             if ((PositionOnDisplay.X + 250 > 2560))
                                 break;
                             PositionOnDisplayAdd (new Vector2 (speedCharacterMoving, 0f));
                             currentAction = 2;
                             cam.activationMovementCamera (CharacterActions.Right, speedCharacterMoving, this, bgScreen.Width);
                             break;
-                        case 2:
+                        case 3:
                             currentAction = 3;
 
                             break;
-                        case 3:
+                        case 4:
                             if (PositionOnDisplay.X < 0f)
                                 break;
                             PositionOnDisplayAdd (new Vector2 (-1 * speedCharacterMoving, 0f));
@@ -107,8 +100,8 @@ namespace _004_epicsciencebattle_chapter1 {
                             break;
 
                     }
-                }
-            }
+                
+  
 
             if (currentAction != prevAction) {
                 currentFrame = 0;

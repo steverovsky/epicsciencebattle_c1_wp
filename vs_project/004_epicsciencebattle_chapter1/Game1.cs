@@ -87,12 +87,7 @@ namespace _004_epicsciencebattle_chapter1 {
 
                 case GameState.Fight:
                    // testCharacter.update (gameTime, adapterSectionLeft, adapterSectionRight, cam, bgScreen);
-                    TouchCollection touchCollection = TouchPanel.GetState ();
-                    foreach (TouchLocation tl in touchCollection) {
-                        if ((tl.State == TouchLocationState.Pressed) || (tl.State == TouchLocationState.Moved)) {
-                            System.Diagnostics.Debug.WriteLine (movingControl.getSectionNumber (tl.Position) + " x: " + tl.Position.X + " y: " + tl.Position.Y);
-                        }
-                    }
+                    testCharacter.update (gameTime, adapterSectionLeft, adapterSectionRight, cam, bgScreen, movingControl);
                     break;
             }
             
