@@ -126,3 +126,6 @@ C:\Users\Никита\SkyDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004
 C:\Users\Никита\SkyDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\obj\Debug\qualifiers.txt.intermediate
 C:\Users\Никита\SkyDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\obj\Debug\MultipleQualifiersPerDimensionFound.txt
 C:\Users\Никита\SkyDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\obj\Debug\ProjectArchitectures.txt
+C:\Users\Никита\SkyDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\bin\Debug\Content\bg_adapter_c.xnb
+C:\Users\Никита\SkyDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\bin\Debug\Content\movingControlSprite.xnb
+C:\Users\Никита\SkyDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\bin\Debug\Content\point.xnb

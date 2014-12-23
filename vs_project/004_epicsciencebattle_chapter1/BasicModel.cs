@@ -18,7 +18,7 @@ namespace _004_epicsciencebattle_chapter1 {
             positionOnDisplay += _position;
         }
 
-        public Texture2D SpriteModel {
+        public virtual Texture2D SpriteModel {
             get { return spriteModel; }
             set { spriteModel = value; }
         }

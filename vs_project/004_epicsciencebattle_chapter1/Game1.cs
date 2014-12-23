@@ -10,21 +10,22 @@ namespace _004_epicsciencebattle_chapter1 {
 
     enum GameState { Menu, Fight };
     public enum CharacterActions { Nothing, Up, Right, Down, Left };
+    public enum Momentum { Negative, Neutral, Positive };
 
     public class Game1 : Game {
         private GraphicsDeviceManager graphics;
         private SpriteBatch spriteBatch;
         private Texture2D bgAdapter;
         Texture2D bgMenu;
-        Texture2D bgScreen;
+        public Texture2D bgScreen;
         BasicCharacter testCharacter;
         Vector2[] adapterSectionLeft;
         Vector2[] adapterSectionRight;
-        bool [] stateAction;
-        SpriteFont font;
-        int prevAction = 0;
         
-        enum Momentum { Negative, Neutral, Positive };
+        SpriteFont font;
+
+        private Control movingControl;
+        Texture2D point;
         GameState currentState;
         Camera2D cam;
         public Game1 () {
@@ -36,7 +37,7 @@ namespace _004_epicsciencebattle_chapter1 {
             StatusBar.GetForCurrentView ().HideAsync ();
             cam = new Camera2D (new Vector2 (GraphicsDevice.Viewport.Width / 2, GraphicsDevice.Viewport.Height / 2), GraphicsDevice);
             //offset = 0f;
-            stateAction = new bool[5] {false, false, false, false, false};
+            
             graphics.SupportedOrientations = DisplayOrientation.LandscapeLeft;
             testCharacter = new BasicCharacter ();
             currentState = GameState.Menu;
@@ -49,20 +50,23 @@ namespace _004_epicsciencebattle_chapter1 {
             };
             adapterSectionRight = new Vector2[4] {
                 new Vector2 (250, 518),
-               new Vector2 (350, 618),
+                new Vector2 (350, 618),
                 new Vector2 (250, 718),
                 new Vector2 (150, 618)
                 
             };
+            movingControl = new Control (new Vector2 (50f, 418f), 75f, 150f);
             base.Initialize ();
         }
 
         protected override void LoadContent () {
             spriteBatch = new SpriteBatch (GraphicsDevice);
             testCharacter.SpriteModel = Content.Load<Texture2D> ("spriteAction");
-            bgAdapter = Content.Load<Texture2D> ("bg_adapter2");
+            movingControl.SpriteModel = Content.Load<Texture2D> ("movingControlSprite");
+            bgAdapter = Content.Load<Texture2D> ("bg_adapter_c");
             bgScreen = Content.Load<Texture2D> ("bg_sprite");
             bgMenu = Content.Load<Texture2D> ("bgMenu");
+            point = Content.Load<Texture2D> ("point");
         }
 
         protected override void Update (GameTime gameTime) {
@@ -82,103 +86,13 @@ namespace _004_epicsciencebattle_chapter1 {
                     break;
 
                 case GameState.Fight:
-                    testCharacter.currentAction = 0;
-
-                    int it;
-                    
-                    float speedCharacterMoving = 1f * (float) gameTime.ElapsedGameTime.TotalMilliseconds;
-
+                   // testCharacter.update (gameTime, adapterSectionLeft, adapterSectionRight, cam, bgScreen);
                     TouchCollection touchCollection = TouchPanel.GetState ();
                     foreach (TouchLocation tl in touchCollection) {
-                        if ((tl.State == TouchLocationState.Pressed)|| (tl.State == TouchLocationState.Moved)) {
-                            for (it = 0; it < adapterSectionLeft.Length; ++it) {
-                                if (tl.Position.X >= adapterSectionLeft[it].X && tl.Position.X <= adapterSectionRight[it].X &&
-                                    tl.Position.Y >= adapterSectionLeft[it].Y && tl.Position.Y <= adapterSectionRight[it].Y)  {
-                                        break;
-                                }
-                            }
-
-
-                           
-
-                            switch (it) {
-                                case 0:
-
-                                    if (!stateAction[(int) CharacterActions.Up]) {
-                                        stateAction[(int) CharacterActions.Up] = true;
-                                        testCharacter.verticalMomentum = (int) Momentum.Positive;
-                                        
-                                    }
-                                    testCharacter.currentAction = 1;
-                                    
-                                    break;
-                                case 1:
-                                    if ((testCharacter.PositionOnDisplay.X + 250 > 2560))
-                                        break;
-                                    //testCharacter.PositionOnDisplay.X += speedCharacterMoving;
-                                    testCharacter.PositionOnDisplayAdd (new Vector2 (speedCharacterMoving, 0f));
-                                    testCharacter.currentAction = 2;
-                                    //activationMovementCamera (1, speedCharacterMoving);
-                                    cam.activationMovementCamera (CharacterActions.Right, speedCharacterMoving, testCharacter, bgScreen.Width);
-                                    break;
-                                case 2:
-                                    testCharacter.currentAction = 3;
-                               
-                                    break;
-                                case 3:
-                                    if (testCharacter.PositionOnDisplay.X < 0f)
-                                        break;
-                                    testCharacter.PositionOnDisplayAdd (new Vector2 (-1 * speedCharacterMoving, 0f));
-                                    //testCharacter.positionOnDisplay.X -= speedCharacterMoving;
-                                    testCharacter.currentAction = 4;
-                                    cam.activationMovementCamera (CharacterActions.Left, speedCharacterMoving, testCharacter, bgScreen.Width);
-                                    break;
-                                
-                               
-
-                            }
+                        if ((tl.State == TouchLocationState.Pressed) || (tl.State == TouchLocationState.Moved)) {
+                            System.Diagnostics.Debug.WriteLine (movingControl.getSectionNumber (tl.Position) + " x: " + tl.Position.X + " y: " + tl.Position.Y);
                         }
                     }
-
-                    
-
-                   // System.Diagnostics.Debug.WriteLine (testCharacter.currentAction + " " +  prevAction);
-
-                    if (testCharacter.currentAction != prevAction) {
-                        testCharacter.currentFrame = 0;
-                    }
-                    prevAction = testCharacter.currentAction;
-
-                    testCharacter.currentFrame += 0.005f * (float) gameTime.ElapsedGameTime.TotalMilliseconds;
-                    if ((int) testCharacter.currentFrame == testCharacter.numberFramesAction[testCharacter.currentAction])
-                        testCharacter.currentFrame = 0;
- 
-                    if (testCharacter.verticalMomentum == (int) Momentum.Positive) {
-                        testCharacter.PositionOnDisplayAdd (new Vector2 ( 0f, -1 * speedCharacterMoving));
-                        //testCharacter.PositionOnDisplay.Y -= speedCharacterMoving;
-                        if ((testCharacter.DefaultPosition.Y - testCharacter.PositionOnDisplay.Y) >= testCharacter.verticalDelta) {
-                            testCharacter.verticalMomentum = (int) Momentum.Negative;
-                        }
-                    }
-                    if (testCharacter.verticalMomentum == (int) Momentum.Negative) {
-                       // testCharacter.positionOnDisplay.Y += speedCharacterMoving;
-                        testCharacter.PositionOnDisplayAdd (new Vector2 (0f, speedCharacterMoving));
-                        if (testCharacter.PositionOnDisplay.Y >= testCharacter.DefaultPosition.Y) {
-                            testCharacter.PositionOnDisplay = new Vector2 (testCharacter.PositionOnDisplay.X, testCharacter.DefaultPosition.Y);
-                            testCharacter.verticalMomentum = (int) Momentum.Neutral;
-                            stateAction[(int) CharacterActions.Up] = false;
-                        }
-                    }
-                  //  if ((int) GraphicsDevice.Viewport.Width - (int) testCharacter.positionOnDisplay.X - 250 <= 50) {
-                   //     offset += (int) testCharacter.positionOnDisplay.X - (int) GraphicsDevice.Viewport.Width;
-                   // }
-                    //System.Diagnostics.Debug.WriteLine (tt);
-                     //)
-                    // таймер задержки после прыжка
-                    // defaultX вычитает высоту скина
-                    // здесь не доходит несколько пилкселей, разобраться с порядком операторов в ифах
-                  
-                    
                     break;
             }
             
@@ -186,47 +100,33 @@ namespace _004_epicsciencebattle_chapter1 {
         }
 
         protected override void Draw (GameTime gameTime) {
-            
-           
-
             GraphicsDevice.Clear (Color.Black);
-           // spriteBatch.Begin ();
-
-            spriteBatch.Begin (SpriteSortMode.BackToFront,
-                        BlendState.AlphaBlend,
-                        null,
-                        null,
-                        null,
-                        null,
-                        cam.GetTransformation ());
-
+            spriteBatch.Begin (SpriteSortMode.BackToFront, BlendState.AlphaBlend,
+                               null, null, null, null, cam.GetTransformation ());
             switch (currentState) {
                 case GameState.Menu:
-
-                   // spriteBatch.DrawString (font, "build 002", new Vector2 (10, 10), Color.White);
                     spriteBatch.Draw (bgMenu, Vector2.Zero, Color.White);
                     break;
                 case GameState.Fight:
-
                     spriteBatch.Draw (bgScreen, Vector2.Zero, Color.White);
                     int width = 250;
                     int height = 470;
                     int row = testCharacter.currentAction;
                     int column = (int) testCharacter.currentFrame;
-                    
                     Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
-                    //Rectangle destinationRectangle = new Rectangle((int)location.X, (int)location.Y, width, height);
-
-                    // номер версии в меню
-                    //spriteBatch.Draw(Texture, destinationRectangle, sourceRectangle, Color.White);
-
-
                     spriteBatch.Draw (testCharacter.SpriteModel, testCharacter.PositionOnDisplay, sourceRectangle, Color.White);
-                    spriteBatch.Draw (bgAdapter, cam.Offset, Color.White);
-                    //spriteBatch.Draw ()
+                    //spriteBatch.Draw (bgAdapter, cam.Offset, Color.White);
+                    spriteBatch.Draw (movingControl.SpriteModel, movingControl.PositionOnDisplay + cam.Offset, Color.White);
+                    float d = 1.41f * 150f / 2;
+                    spriteBatch.Draw (point, movingControl.centerPosition - new Vector2 (2, 2), Color.White);
+                    spriteBatch.Draw (point, movingControl.centerPosition - new Vector2 (2, 2) + new Vector2 (d, d), Color.White);
+                    spriteBatch.Draw (point, movingControl.centerPosition - new Vector2 (2, 2) + new Vector2 (-d, d), Color.White);
+
+                    spriteBatch.Draw (point, movingControl.centerPosition - new Vector2 (2, 2) + new Vector2 (d, d), Color.White);
+                    spriteBatch.Draw (point, movingControl.centerPosition - new Vector2 (2, 2) + new Vector2 (-d, d), Color.White);
+                    spriteBatch.Draw (point, movingControl.centerPosition - new Vector2 (2, 2) + new Vector2 (0, 150), Color.White);
                     break;
             }
-            
             spriteBatch.End ();
             base.Draw (gameTime);
         }

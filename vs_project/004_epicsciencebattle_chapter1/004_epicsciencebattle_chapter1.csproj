@@ -89,6 +89,7 @@
     <Compile Include="BasicCharacter.cs" />
     <Compile Include="BasicModel.cs" />
     <Compile Include="Camera2D.cs" />
+    <Compile Include="Control.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="GamePage.xaml.cs">
       <DependentUpon>GamePage.xaml</DependentUpon>
@@ -146,6 +147,15 @@
     <Content Include="Content\SpriteFont.spritefont">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Content\bg_adapter_c.xnb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\movingControlSprite.xnb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\point.xnb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="Content\testgg.xnb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
