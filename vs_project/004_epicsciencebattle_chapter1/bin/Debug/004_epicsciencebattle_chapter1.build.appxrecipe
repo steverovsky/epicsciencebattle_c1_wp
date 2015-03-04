@@ -55,9 +55,6 @@
     <AppxPackagedFile Include="C:\Users\Никита\SkyDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\Content\testCharacter.xnb">
       <PackagePath>Content\testCharacter.xnb</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Никита\SkyDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\Content\spriteAction.xnb">
-      <PackagePath>Content\spriteAction.xnb</PackagePath>
-    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Никита\SkyDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\Content\bg_sprite.xnb">
       <PackagePath>Content\bg_sprite.xnb</PackagePath>
     </AppxPackagedFile>
@@ -69,6 +66,9 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Никита\SkyDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\Content\point.xnb">
       <PackagePath>Content\point.xnb</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Никита\SkyDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\Content\spriteAction.xnb">
+      <PackagePath>Content\spriteAction.xnb</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Никита\SkyDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\Content\testTextureAtlases.xnb">
       <PackagePath>Content\testTextureAtlases.xnb</PackagePath>

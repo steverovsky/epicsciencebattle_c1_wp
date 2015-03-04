@@ -39,19 +39,16 @@ namespace _004_epicsciencebattle_chapter1 {
 
         bool PointInTriangle (Vector2 pt, Vector2 v1, Vector2 v2, Vector2 v3) {
             bool b1, b2, b3;
-
             b1 = sign (pt, v1, v2) < 0.0f;
             b2 = sign (pt, v2, v3) < 0.0f;
             b3 = sign (pt, v3, v1) < 0.0f;
-
             return ((b1 == b2) && (b2 == b3));
         }
 
         public bool EntryIntoSection (int _numberSection, Vector2 _point) {
-            // point вместо vector2?
             float PointDistaneToCenter = (float) (Math.Pow (_point.X - centerPosition.X, 2) + Math.Pow (_point.Y - centerPosition.Y, 2));
             bool entryIntoInnerCircle = PointDistaneToCenter < innerRadius * innerRadius;
-            if (_numberSection == 0) {
+            if (_numberSection == 5) {
                 return entryIntoInnerCircle;
             }
             float k = 1.41f * outerRadius / 2;
@@ -64,7 +61,7 @@ namespace _004_epicsciencebattle_chapter1 {
                     vertices[3] = new Vector2 (k, -k);
                     break;
                 case 2:
-                    vertices[1] = new Vector2 (-k, -k);
+                    vertices[1] = new Vector2 (k, -k);
                     vertices[2] = new Vector2 (outerRadius, 0);
                     vertices[3] = new Vector2 (k, k);
                     break;
@@ -87,18 +84,18 @@ namespace _004_epicsciencebattle_chapter1 {
                    !entryIntoInnerCircle;
         }
 
-        public int getSectionNumber () {
+        public CharacterActions getSectionNumber () {
             TouchCollection touchCollection = TouchPanel.GetState ();
             foreach (TouchLocation pressure in touchCollection) {
                 if ((pressure.State == TouchLocationState.Pressed) || (pressure.State == TouchLocationState.Moved)) {
-                    for (int i = 0; i < 5; ++i) {
+                    for (int i = 1; i < 6; ++i) {
                         if (EntryIntoSection (i, pressure.Position)) {
-                            return i;
+                            return (CharacterActions) i;
                         }
                     }
                 }
             }
-            return -1;
+            return (CharacterActions) 0;
         }
     }
 }

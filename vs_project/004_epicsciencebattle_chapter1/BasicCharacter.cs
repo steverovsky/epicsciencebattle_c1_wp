@@ -2,138 +2,97 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Input.Touch;
-using System;
+using Windows.UI.ViewManagement;
 using System.Diagnostics;
 using System.Collections.Generic;
 
 namespace _004_epicsciencebattle_chapter1 {
     
-    class BasicCharacter : BasicModel {
-        public float verticalDelta;
-        public float horizontalDelta;
-        public sbyte verticalMomentum;
-        public sbyte horizontalMomentum;
-        public float currentFrame;
-        public int currentAction;
-        public int[] numberFramesAction;
-        public int Rows { get; set; }
-        public int Columns { get; set; }
-        bool[] stateAction;
-        int prevAction = 0;
+    public enum Momentum { Negative, Neutral, Positive };
 
-        
+    class BasicCharacter : BasicModel {
+        private Vector2 delta;
+        private Vector2 momentum;
+        private float currentFrame;
+        private CharacterActions currentAction;
+        private CharacterActions previousAction;
+        private int[] numberFramesAction;
+        private bool[] stateAction;
+        private float health;
+        private string characterName;
 
         public BasicCharacter () {
             this.defaultPosition = new Vector2 (0, 245f);
             this.positionOnDisplay = defaultPosition;
-            this.verticalDelta = 250f;
-            this.verticalMomentum = 0;
-            this.horizontalMomentum = 0;
-            this.horizontalDelta = 500f;
+            this.delta = new Vector2 (500f, 250f);
+            this.momentum = new Vector2 (0f, 0f);
             this.currentFrame = 0;
-            this.currentAction = 0;
-            this.numberFramesAction = new int[5] { 5, 4, 3, 1, 3};
+            this.currentAction = CharacterActions.Nothing;
+            this.numberFramesAction = new int[6] { 5, 4, 3, 1, 3, 5};
             sizeTexture = new Vector2 (250f, 470f);
             stateAction = new bool[5] { false, false, false, false, false };
+            previousAction = CharacterActions.Nothing;
         }
 
-        public int getSectionNumberLeftAdapter (TouchCollection _touchCollection) {
-            bool inAdapter = false;
-
-            foreach (TouchLocation tl in _touchCollection) {
-                if ((tl.State == TouchLocationState.Pressed) || (tl.State == TouchLocationState.Moved)) {
-                    if (!(Math.Sqrt (Math.Pow (tl.Position.X - 192, 2) + Math.Pow (tl.Position.Y - 568, 2)) < 75) &&
-                        Math.Sqrt (Math.Pow (tl.Position.X - 192, 2) + Math.Pow (tl.Position.Y - 568, 2)) < 150) {
-                            //System.Diagnostics.Debug.WriteLine ("x: " + tl.Position.X + " y: " + tl.Position.Y);
-                            if (tl.Position.X > 200 && tl.Position.Y > 568)
-                                return 1;
-                            if (tl.Position.X < 200 && tl.Position.Y > 568)
-                                return 2;
-                            if (tl.Position.X < 200 && tl.Position.Y < 568)
-                                return 3;
-                            if (tl.Position.X > 200 && tl.Position.Y < 568)
-                                return 4;
-                    }
-                }
-            }
-            return 0;
-        }
-
-        public void update (GameTime _gameTime, Vector2[] adapterSectionLeft, Vector2[] adapterSectionRight, Camera2D cam, Texture2D bgScreen, Control _movingControl) {
-            currentAction = 0;
-
-            int it;
-            
-            float speedCharacterMoving = 1f * (float) _gameTime.ElapsedGameTime.TotalMilliseconds;
-
-            TouchCollection touchCollection = TouchPanel.GetState ();
-
-
-            switch (_movingControl.getSectionNumber ()) {
-                        case 1:
-
-                            if (!stateAction[(int) CharacterActions.Up]) {
-                                stateAction[(int) CharacterActions.Up] = true;
-                                verticalMomentum = (int) Momentum.Positive;
-
-                            }
-                            currentAction = 1;
-
-                            break;
-                        case 2:
-                            if ((PositionOnDisplay.X + 250 > 2560))
-                                break;
-                            PositionOnDisplayAdd (new Vector2 (speedCharacterMoving, 0f));
-                            currentAction = 2;
-                            cam.activationMovementCamera (CharacterActions.Right, speedCharacterMoving, this, bgScreen.Width);
-                            break;
-                        case 3:
-                            currentAction = 3;
-
-                            break;
-                        case 4:
-                            if (PositionOnDisplay.X < 0f)
-                                break;
-                            PositionOnDisplayAdd (new Vector2 (-1 * speedCharacterMoving, 0f));
-                            currentAction = 4;
-                            cam.activationMovementCamera (CharacterActions.Left, speedCharacterMoving, this, bgScreen.Width);
-                            break;
-
-                    }
-                
-  
-
-            if (currentAction != prevAction) {
+        public void calculationFrame (GameTime _gameTime) {
+            if (currentAction != previousAction) {
                 currentFrame = 0;
             }
-            prevAction = currentAction;
-
+            previousAction = currentAction;
             currentFrame += 0.005f * (float) _gameTime.ElapsedGameTime.TotalMilliseconds;
-            if ((int) currentFrame == numberFramesAction[currentAction])
+            if ((int) currentFrame == numberFramesAction[(int) currentAction])
                 currentFrame = 0;
+        }
 
-            if (verticalMomentum == (int) Momentum.Positive) {
-                PositionOnDisplayAdd (new Vector2 (0f, -1 * speedCharacterMoving));
-                if ((DefaultPosition.Y - PositionOnDisplay.Y) >= verticalDelta) {
-                    verticalMomentum = (int) Momentum.Negative;
+        public void performingJjump (float _speedCharacterMoving) {
+            if (momentum.Y == (int) Momentum.Positive) {
+                PositionOnDisplayAdd (new Vector2 (0f, -1 * _speedCharacterMoving));
+                if ((DefaultPosition.Y - PositionOnDisplay.Y) >= delta.Y) {
+                    momentum.Y = (int) Momentum.Negative;
                 }
             }
-            if (verticalMomentum == (int) Momentum.Negative) {
-                PositionOnDisplayAdd (new Vector2 (0f, speedCharacterMoving));
+            if (momentum.Y == (int) Momentum.Negative) {
+                PositionOnDisplayAdd (new Vector2 (0f, _speedCharacterMoving));
                 if (PositionOnDisplay.Y >= DefaultPosition.Y) {
                     PositionOnDisplay = new Vector2 (PositionOnDisplay.X, DefaultPosition.Y);
-                    verticalMomentum = (int) Momentum.Neutral;
+                    momentum.Y = (int) Momentum.Neutral;
                     stateAction[(int) CharacterActions.Up] = false;
                 }
             }
-            //  if ((int) GraphicsDevice.Viewport.Width - (int) testCharacter.positionOnDisplay.X - 250 <= 50) {
-            //     offset += (int) testCharacter.positionOnDisplay.X - (int) GraphicsDevice.Viewport.Width;
-            // }
-            //System.Diagnostics.Debug.WriteLine (tt);
-            //)
-            // таймер задержки после прыжка
-            // defaultX вычитает высоту скина
-            // здесь не доходит несколько пилкселей, разобраться с порядком операторов в ифах
+        }
+
+        public void update (GameTime _gameTime, Camera2D cam, Texture2D bgScreen, Control _movingControl) {
+            currentAction = CharacterActions.Nothing;
+            float speedCharacterMoving = 1f * (float) _gameTime.ElapsedGameTime.TotalMilliseconds;
+            switch (currentAction = _movingControl.getSectionNumber ()) {
+                case CharacterActions.Up:
+                    if (!stateAction[(int) CharacterActions.Up]) {
+                        stateAction[(int) CharacterActions.Up] = true;
+                        momentum.Y = (int) Momentum.Positive;
+                    }
+                    break;
+                case CharacterActions.Right:
+                    if ((PositionOnDisplay.X + 250 > 2560))
+                        break;
+                    PositionOnDisplayAdd (new Vector2 (speedCharacterMoving, 0f));
+                    cam.activationMovementCamera (CharacterActions.Right, speedCharacterMoving, this, bgScreen.Width);
+                    break;
+               case CharacterActions.Left:
+                   if (PositionOnDisplay.X < 0f)
+                       break;
+                   PositionOnDisplayAdd (new Vector2 (-1 * speedCharacterMoving, 0f));
+                   cam.activationMovementCamera (CharacterActions.Left, speedCharacterMoving, this, bgScreen.Width);
+                   break;
+            }
+            
+            performingJjump (speedCharacterMoving);
+            calculationFrame (_gameTime);
+        }
+
+        public void Draw (SpriteBatch _spriteBatch) {
+            Point startTexture = new Point ((int) sizeTexture.X * (int) currentFrame, (int) sizeTexture.Y * (int) currentAction);
+            Rectangle sourceRectangle = new Rectangle (startTexture.X, startTexture.Y, (int) sizeTexture.X, (int) sizeTexture.Y);
+            _spriteBatch.Draw (spriteModel, positionOnDisplay, sourceRectangle, Color.White);
         }
 
     }

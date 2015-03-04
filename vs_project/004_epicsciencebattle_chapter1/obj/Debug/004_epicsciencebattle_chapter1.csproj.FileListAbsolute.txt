@@ -78,9 +78,6 @@ C:\Users\Никита\SkyDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004
 C:\Users\Никита\SkyDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\bin\Debug\Content\testgg.xnb
 C:\Users\Никита\SkyDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\bin\Debug\App.xbf
 C:\Users\Никита\SkyDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\bin\Debug\GamePage.xbf
-C:\Users\Никита\SkyDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\bin\Debug\004_epicsciencebattle_chapter1.xr.xml
-C:\Users\Никита\SkyDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\bin\Debug\004_epicsciencebattle_chapter1.exe
-C:\Users\Никита\SkyDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\bin\Debug\004_epicsciencebattle_chapter1.pdb
 C:\Users\Никита\SkyDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\bin\Debug\resources.pri
 C:\Users\Никита\SkyDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\bin\Debug\AppxManifest.xml
 C:\Users\Никита\SkyDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\bin\Debug\004_epicsciencebattle_chapter1.build.appxrecipe
@@ -109,8 +106,6 @@ C:\Users\Никита\SkyDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004
 C:\Users\Никита\SkyDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\obj\Debug\App.xbf
 C:\Users\Никита\SkyDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\obj\Debug\GamePage.xbf
 C:\Users\Никита\SkyDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\obj\Debug\XamlSaveStateFile.xml
-C:\Users\Никита\SkyDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\obj\Debug\004_epicsciencebattle_chapter1.exe
-C:\Users\Никита\SkyDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\obj\Debug\004_epicsciencebattle_chapter1.pdb
 C:\Users\Никита\SkyDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\obj\Debug\004_epicsciencebattle_chapter1.csproj.GenerateResource.Cache
 C:\Users\Никита\SkyDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\obj\Debug\SharpDX.pri
 C:\Users\Никита\SkyDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\obj\Debug\SharpDX\qualifiers.txt
@@ -129,3 +124,8 @@ C:\Users\Никита\SkyDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004
 C:\Users\Никита\SkyDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\bin\Debug\Content\bg_adapter_c.xnb
 C:\Users\Никита\SkyDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\bin\Debug\Content\movingControlSprite.xnb
 C:\Users\Никита\SkyDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\bin\Debug\Content\point.xnb
+C:\Users\Никита\SkyDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\bin\Debug\004_epicsciencebattle_chapter1.xr.xml
+C:\Users\Никита\SkyDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\bin\Debug\004_epicsciencebattle_chapter1.exe
+C:\Users\Никита\SkyDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\bin\Debug\004_epicsciencebattle_chapter1.pdb
+C:\Users\Никита\SkyDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\obj\Debug\004_epicsciencebattle_chapter1.exe
+C:\Users\Никита\SkyDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\obj\Debug\004_epicsciencebattle_chapter1.pdb
