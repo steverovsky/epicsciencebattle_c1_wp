@@ -8,9 +8,12 @@ using System.Collections.Generic;
 
 namespace _004_epicsciencebattle_chapter1 {
 
-    enum GameState { Menu, Fight };
+    enum GameState { Menu, Fight, Pause };
+
+    
 
     public class Game1 : Game {
+ 
         private GraphicsDeviceManager graphics;
         private SpriteBatch spriteBatch;
         Texture2D bgMenu;
@@ -19,6 +22,7 @@ namespace _004_epicsciencebattle_chapter1 {
         private Control movingControl;
         GameState currentState;
         Camera2D cam;
+        public float timePause;
 
         public Game1 () {
             graphics = new GraphicsDeviceManager (this);
@@ -27,6 +31,7 @@ namespace _004_epicsciencebattle_chapter1 {
 
         protected override void Initialize () {
             StatusBar.GetForCurrentView ().HideAsync ();
+            timePause = 0f;
             cam = new Camera2D (new Vector2 (GraphicsDevice.Viewport.Width / 2, GraphicsDevice.Viewport.Height / 2), GraphicsDevice);
             graphics.SupportedOrientations = DisplayOrientation.LandscapeLeft;
             testCharacter = new BasicCharacter ();
@@ -55,6 +60,21 @@ namespace _004_epicsciencebattle_chapter1 {
             }
         }
 
+        public bool getPressPause () {
+            TouchCollection currentTouch = TouchPanel.GetState();
+            foreach (TouchLocation element in currentTouch)
+            {
+                if (element.State == TouchLocationState.Pressed || element.State == TouchLocationState.Moved)
+                {
+                    if (element.Position.X >= 0 && element.Position.X <= 100 && element.Position.Y >= 0 && element.Position.Y <= 100)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
         protected override void Update (GameTime gameTime) {
             switch (currentState) {
                 case GameState.Menu:
@@ -62,6 +82,21 @@ namespace _004_epicsciencebattle_chapter1 {
                     break;
                 case GameState.Fight:
                     testCharacter.update (gameTime, cam, bgScreen, movingControl);
+                    if (getPressPause ())
+                    {
+                        currentState = GameState.Pause;
+                    }
+                    break;
+                case GameState.Pause:
+                    timePause += (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    if (timePause >= 0.5f)
+                    {
+                        if (getPressPause())
+                        {
+                            timePause = 0f;
+                            currentState = GameState.Fight;
+                        }
+                    }
                     break;
             }
             base.Update (gameTime);
