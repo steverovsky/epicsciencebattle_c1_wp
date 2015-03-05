@@ -8,9 +8,9 @@ using System.Collections.Generic;
 
 namespace _004_epicsciencebattle_chapter1 {
 
-    enum GameState { Menu, Fight, Pause };
-
+    enum MainState { InitGame, PromoGame, Menu, Break };
     
+    enum GameState { Menu, Fight, Pause };
 
     public class Game1 : Game {
  
@@ -23,7 +23,7 @@ namespace _004_epicsciencebattle_chapter1 {
         GameState currentState;
         Camera2D cam;
         public float timePause;
-
+        MenuGame menu;
         public Game1 () {
             graphics = new GraphicsDeviceManager (this);
             Content.RootDirectory = "Content";
@@ -72,10 +72,32 @@ namespace _004_epicsciencebattle_chapter1 {
                     }
                 }
             }
+           
             return false;
         }
 
         protected override void Update (GameTime gameTime) {
+
+            MainState currentMainState = MainState.InitGame;
+             
+
+            switch (currentMainState) {
+                case MainState.InitGame:
+                    currentMainState = MainState.PromoGame;
+                    break;
+                case MainState.PromoGame:
+                    menu = new MenuGame();
+                    currentMainState = MainState.Menu;
+                    break;
+                case MainState.Menu:
+                    if (!menu.Update(gameTime)) {
+                        currentMainState = MainState.Break;
+                    }
+                    break;
+                case MainState.Break:
+                    break;
+            }
+
             switch (currentState) {
                 case GameState.Menu:
                     displayMenu ();
