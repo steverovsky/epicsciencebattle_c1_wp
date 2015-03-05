@@ -10,7 +10,7 @@ namespace _004_epicsciencebattle_chapter1 {
     
     public enum Momentum { Negative, Neutral, Positive };
 
-    class BasicCharacter : BasicModel {
+    public class BasicCharacter : BasicModel {
         private Vector2 delta;
         private Vector2 momentum;
         private float currentFrame;

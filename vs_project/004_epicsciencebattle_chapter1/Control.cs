@@ -11,7 +11,7 @@ using System.Windows;
 using Microsoft.Xna.Framework.Input.Touch;
 
 namespace _004_epicsciencebattle_chapter1 {
-    class Control : BasicModel {
+    public class Control : BasicModel {
 
         private float innerRadius;
         private float outerRadius;

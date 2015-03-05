@@ -46,8 +46,8 @@
     <AppxPackagedFile Include="C:\Users\nanistratenko\OneDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\Content\bg_adapter.xnb">
       <PackagePath>Content\bg_adapter.xnb</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nanistratenko\OneDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\Content\bgMenu.xnb">
-      <PackagePath>Content\bgMenu.xnb</PackagePath>
+    <AppxPackagedFile Include="C:\Users\nanistratenko\OneDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\Content\bgMenu2.xnb">
+      <PackagePath>Content\bgMenu2.xnb</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nanistratenko\OneDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\Content\bg_adapter2.xnb">
       <PackagePath>Content\bg_adapter2.xnb</PackagePath>
@@ -70,8 +70,14 @@
     <AppxPackagedFile Include="C:\Users\nanistratenko\OneDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\Content\spriteAction.xnb">
       <PackagePath>Content\spriteAction.xnb</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nanistratenko\OneDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\Content\bgMenu.xnb">
+      <PackagePath>Content\bgMenu.xnb</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nanistratenko\OneDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\Content\testTextureAtlases.xnb">
       <PackagePath>Content\testTextureAtlases.xnb</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nanistratenko\OneDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\Content\SpriteFont1.spritefont">
+      <PackagePath>Content\SpriteFont1.spritefont</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nanistratenko\OneDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\Content\SpriteFont.spritefont">
       <PackagePath>Content\SpriteFont.spritefont</PackagePath>

@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework.Content;
 
 
 namespace _004_epicsciencebattle_chapter1 {
-    class Camera2D {
+    public class Camera2D {
         private float zoom;
         private Matrix transform;
         private float rotation;

@@ -7,8 +7,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>XNAFormatter\Content\bgMenu.xnb</Output>
-      <Time>2014-11-21T23:48:15.8354969+03:00</Time>
+      <Output>bgMenu.xnb</Output>
+      <Time>2015-03-05T01:42:29.1937226+03:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -16,11 +16,11 @@
       <TargetPlatform>WindowsPhone</TargetPlatform>
       <TargetProfile>Reach</TargetProfile>
       <BuildConfiguration Null="true" />
-      <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\Никита\SkyDrive\Разработки\004_epicsciencebattle_chapter1\</RootDirectory>
+      <CompressContent>true</CompressContent>
+      <RootDirectory>C:\Users\nanistratenko\Desktop\</RootDirectory>
       <LoggerRootDirectory Null="true" />
-      <IntermediateDirectory>C:\Users\Никита\SkyDrive\Разработки\004_epicsciencebattle_chapter1\XNAFormatter\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\Никита\SkyDrive\Разработки\004_epicsciencebattle_chapter1\XNAFormatter\Content\</OutputDirectory>
+      <IntermediateDirectory>C:\Users\nanistratenko\OneDrive\dev\epicsciencebattle_chapter01_wp\XNAFormatter\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\nanistratenko\Desktop\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
@@ -48,8 +48,8 @@
         <Value>2011-09-01T17:22:30+04:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2014-11-21T01:00:25.6071029+03:00</Value>
+        <Key>C:\WINDOWS\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2015-03-05T15:46:06.2110683+03:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>

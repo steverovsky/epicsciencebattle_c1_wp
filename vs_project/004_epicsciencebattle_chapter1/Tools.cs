@@ -8,6 +8,14 @@ using System.Collections.Generic;
 
 namespace _004_epicsciencebattle_chapter1 {
     static class Tools {
+
+        public static Texture2D bgMenu;
+        public static Texture2D bgScreen;
+        public static Control control;
+        public static Camera2D camera;
+        public static Texture2D bgCharacter;
+        public static Texture2D bgControl;
+
         public static bool EntryIntoCircle (Vector2 _point, Vector2 _centerCircle, float _radius) {
             return false;
         }

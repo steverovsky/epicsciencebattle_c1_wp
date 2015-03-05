@@ -68,7 +68,6 @@ C:\Users\nanistratenko\OneDrive\dev\epicsciencebattle_chapter01_wp\vs_project\00
 C:\Users\nanistratenko\OneDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\bin\Release\Content\bg_adapter2.xnb
 C:\Users\nanistratenko\OneDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\bin\Release\Content\testCharacter.xnb
 C:\Users\nanistratenko\OneDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\bin\Release\Content\bg_sprite.xnb
-C:\Users\nanistratenko\OneDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\bin\Release\Content\SpriteFont.spritefont
 C:\Users\nanistratenko\OneDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\bin\Release\Content\bg_adapter_c.xnb
 C:\Users\nanistratenko\OneDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\bin\Release\Content\movingControlSprite.xnb
 C:\Users\nanistratenko\OneDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\bin\Release\Content\point.xnb
@@ -126,11 +125,6 @@ C:\Users\nanistratenko\OneDrive\dev\epicsciencebattle_chapter01_wp\vs_project\00
 C:\Users\nanistratenko\OneDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\obj\Release\qualifiers.txt.intermediate
 C:\Users\nanistratenko\OneDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\obj\Release\MultipleQualifiersPerDimensionFound.txt
 C:\Users\nanistratenko\OneDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\obj\Release\ProjectArchitectures.txt
-C:\Users\nanistratenko\OneDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\obj\Release\SharpDX\layout.resfiles
-C:\Users\nanistratenko\OneDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\obj\Release\SharpDX\layout.resfiles.intermediate
-C:\Users\nanistratenko\OneDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\obj\Release\SharpDX\Resources.resfiles
-C:\Users\nanistratenko\OneDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\obj\Release\SharpDX\Resources.resfiles.intermediate
-C:\Users\nanistratenko\OneDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\obj\Release\SharpDX\pri.resfiles
-C:\Users\nanistratenko\OneDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\obj\Release\SharpDX\pri.resfiles.intermediate
-C:\Users\nanistratenko\OneDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\obj\Release\SharpDX\priconfig.xml
-C:\Users\nanistratenko\OneDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\obj\Release\SharpDX\priconfig.xml.intermediate
+C:\Users\nanistratenko\OneDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\bin\Release\Content\SpriteFont1.spritefont
+C:\Users\nanistratenko\OneDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\bin\Release\Content\bgMenu2.xnb
+C:\Users\nanistratenko\OneDrive\dev\epicsciencebattle_chapter01_wp\vs_project\004_epicsciencebattle_chapter1\bin\Release\Content\SpriteFont.spritefont

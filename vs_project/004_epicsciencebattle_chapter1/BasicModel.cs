@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
 
 namespace _004_epicsciencebattle_chapter1 {
-    class BasicModel {
+    public class BasicModel {
         protected Vector2 positionOnDisplay;
         protected Vector2 defaultPosition;
         protected Vector2 sizeTexture;

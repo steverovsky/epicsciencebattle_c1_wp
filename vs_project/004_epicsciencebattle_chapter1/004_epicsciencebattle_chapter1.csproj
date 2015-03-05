@@ -89,8 +89,10 @@
     <Compile Include="BasicCharacter.cs" />
     <Compile Include="BasicModel.cs" />
     <Compile Include="Camera2D.cs" />
+    <Compile Include="Character.cs" />
     <Compile Include="CharacterActions.cs" />
     <Compile Include="Control.cs" />
+    <Compile Include="Fight.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="GamePage.xaml.cs">
       <DependentUpon>GamePage.xaml</DependentUpon>
@@ -132,7 +134,7 @@
     <Content Include="Content\bg_adapter.xnb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\bgMenu.xnb">
+    <Content Include="Content\bgMenu2.xnb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\bg_adapter2.xnb">
@@ -144,7 +146,7 @@
     <Content Include="Content\bg_sprite.xnb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\SpriteFont.spritefont">
+    <Content Include="Content\SpriteFonsst1.spritefont">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </Content>
@@ -158,6 +160,15 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\spriteAction.xnb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\SpriteFont.spritefont">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\bgMenu.xnb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\MyFont.xnb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="Content\testgg.xnb">

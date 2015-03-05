@@ -20,7 +20,7 @@ namespace _004_epicsciencebattle_chapter1 {
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
     public sealed partial class GamePage : SwapChainBackgroundPanel {
-        readonly Game1 _game;
+        public readonly Game1 _game;
         public GamePage () {
             this.InitializeComponent ();
         }

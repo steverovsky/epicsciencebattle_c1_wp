@@ -7,15 +7,17 @@ using System.Diagnostics;
 using System.Collections.Generic;
 
 namespace _004_epicsciencebattle_chapter1 {
-    enum MenuState { Wait, InitStory, ContinueStory, RandomFight, Options, Break };
+    enum MenuState { Wait = -1, InitStory, ContinueStory, RandomFight, Options, Break };
     class MenuGame {
         MenuState currentMenuState;
         float marginRight;
         Vector2 startPosition0;
         Vector2 itemSize;
         int menulength;
-
-        public MenuGame () {
+        private Texture2D backgroundMenu;
+        Fight fight;
+        public MenuGame (Texture2D _backgroundMenu) {
+            backgroundMenu = _backgroundMenu;
             currentMenuState = MenuState.Wait;
             marginRight = 25.0f;
             startPosition0 = new Vector2(90f, 472f);
@@ -30,8 +32,9 @@ namespace _004_epicsciencebattle_chapter1 {
                 if (element.State == TouchLocationState.Pressed || element.State == TouchLocationState.Moved) {
                     for (index = 0; index < menulength; ++index) {
                         if (Tools.EntryIntoRectangle(element.Position,
-                                new Vector2((startPosition0.X + marginRight) * index, startPosition0.Y),
-                                new Vector2((startPosition0.X + marginRight) * index + itemSize.X, startPosition0.Y + itemSize.Y))) {
+                                new Vector2(startPosition0.X + (itemSize.X + marginRight) * index, startPosition0.Y),
+                                new Vector2(startPosition0.X + itemSize.X + (itemSize.X + marginRight) * index, startPosition0.Y + itemSize.Y))) 
+                                {
                             return index;
                         }
                     }
@@ -43,13 +46,14 @@ namespace _004_epicsciencebattle_chapter1 {
         public void Draw (SpriteBatch _spriteBatch) {
             switch (currentMenuState) {
                 case MenuState.Wait:
-                    // Draw bgMenu
+                    _spriteBatch.Draw(backgroundMenu, Vector2.Zero, Color.White);
                     break;
                 case MenuState.InitStory:
                     break;
                 case MenuState.ContinueStory:
                     break;
                 case MenuState.RandomFight:
+                    fight.Draw(_spriteBatch);
                     break;
                 case MenuState.Options:
                     break;
@@ -61,6 +65,7 @@ namespace _004_epicsciencebattle_chapter1 {
         public bool Update (GameTime _gameTime) {
             switch (currentMenuState) {
                 case MenuState.Wait:
+                   // System.Diagnostics.Debug.WriteLine(GetStateFromTouch());
                     currentMenuState = (MenuState)GetStateFromTouch();
                     break;
                 case MenuState.InitStory:
@@ -68,6 +73,9 @@ namespace _004_epicsciencebattle_chapter1 {
                 case MenuState.ContinueStory:
                     break;
                 case MenuState.RandomFight:
+                    if (fight == null)
+                        fight = new Fight(0, 0, 0, Tools.bgScreen);
+                    fight.Update(_gameTime);
                     break;
                 case MenuState.Options:
                     break;
